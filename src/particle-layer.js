@@ -92,6 +92,7 @@ export default class ParticleLayer extends LineLayer {
   }
 
   finalizeState() {
+    this._cancelPendingStep();
     this._deleteTransformFeedback();
 
     super.finalizeState();
@@ -135,6 +136,11 @@ export default class ParticleLayer extends LineLayer {
 
     const {initialized} = this.state;
     if (initialized) {
+      // Cancel any pending animation step to prevent buffer overflow.
+      // The setTimeout in requestStep() may still be pending when we recreate
+      // buffers with a different numParticles, causing copyBufferSubData to
+      // overflow when the old animation step fires with mismatched buffer sizes.
+      this._cancelPendingStep();
       this._deleteTransformFeedback();
     }
 
@@ -299,6 +305,11 @@ export default class ParticleLayer extends LineLayer {
     });
   }
 
+  /**
+   * Request an animation step at the next FPS interval.
+   * Stores timeout ID so it can be cancelled if layer props change
+   * (see _cancelPendingStep and _setupTransformFeedback).
+   */
   requestStep() {
     const {stepRequested} = this.state;
     if (stepRequested) {
@@ -306,10 +317,24 @@ export default class ParticleLayer extends LineLayer {
     }
 
     this.state.stepRequested = true;
-    setTimeout(() => {
+    this.state.stepTimeoutId = setTimeout(() => {
+      this.state.stepTimeoutId = null;
       this.step();
       this.state.stepRequested = false;
     }, 1000 / FPS);
+  }
+
+  /**
+   * Cancel any pending animation step timeout.
+   * Called before buffer recreation to prevent buffer overflow when
+   * numParticles changes - an old timeout could fire with stale buffer sizes.
+   */
+  _cancelPendingStep() {
+    if (this.state.stepTimeoutId) {
+      clearTimeout(this.state.stepTimeoutId);
+      this.state.stepTimeoutId = null;
+      this.state.stepRequested = false;
+    }
   }
 
   step() {
