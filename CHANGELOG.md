@@ -7,7 +7,11 @@
     requestStep() could fire after buffers were recreated with different sizes,
     causing copyBufferSubData to overflow
   - Added _cancelPendingStep() to clear pending animation timeouts before buffer recreation
-  - This fixes visual glitches (particles with erratic angles) when panning or resizing the map
+  - This fixes visual glitches (particles with erratic angles) when panning or resizing.
+- Bump dependencies
+  - Babel 7.x
+  - Rollup 4.x
+  - Deck.gl/Luma.gl 8.x
 
 ## 1.1.0
 
