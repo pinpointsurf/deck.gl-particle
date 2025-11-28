@@ -1,10 +1,16 @@
-import pkg from './package.json';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import { createRequire } from 'module';
 import alias from '@rollup/plugin-alias';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import terser from '@rollup/plugin-terser';
-import visualizer from 'rollup-plugin-visualizer';
+import { visualizer } from 'rollup-plugin-visualizer';
+
+const require = createRequire(import.meta.url);
+const pkg = require('./package.json');
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 function bundle(filename, options = {}) {
   return {
