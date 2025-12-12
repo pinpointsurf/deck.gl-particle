@@ -1,14 +1,8 @@
 # deck.gl-particle
 
-[![](https://img.shields.io/npm/dm/deck.gl-particle)](https://www.npmjs.com/package/deck.gl-particle)
-[![](https://img.shields.io/david/zakjan/deck.gl-particle)](https://www.npmjs.com/package/deck.gl-particle)
-[![](https://img.shields.io/bundlephobia/min/deck.gl-particle)](https://www.npmjs.com/package/deck.gl-particle)
-
 Particle simulation layer for deck.gl
 
-**⚠️ The repository is archived as read-only. Use [weatherlayers-gl](https://github.com/weatherlayers/weatherlayers-gl) instead.**
-
-[Demo](https://weatherlayers.github.io/deck.gl-particle/)
+Maintenance fork of https://github.com/weatherlayers/deck.gl-particle
 
 <img src="docs/screenshot@2x.png" alt="Screenshot" width="640" height="320">
 

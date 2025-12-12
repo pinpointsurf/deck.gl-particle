@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.1.1
+
+- fix buffer overflow when numParticles changes during animation
+  - When layer props changed (e.g. numParticles), pending setTimeout from 
+    requestStep() could fire after buffers were recreated with different sizes,
+    causing copyBufferSubData to overflow
+  - Added _cancelPendingStep() to clear pending animation timeouts before buffer recreation
+  - This fixes visual glitches (particles with erratic angles) when panning or resizing.
+- Bump dependencies
+  - Babel 7.x
+  - Rollup 4.x
+  - Deck.gl/Luma.gl 8.x
+
 ## 1.1.0
 
 - support rendering in a repeated MapView

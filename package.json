@@ -1,17 +1,21 @@
 {
-  "name": "deck.gl-particle",
-  "version": "1.1.0",
+  "name": "@pinpointsurf/deck.gl-particle",
+  "version": "1.1.1",
   "description": "Particle simulation layer for deck.gl",
   "keywords": [
     "deck.gl",
     "particle",
     "wind"
   ],
-  "author": "WeatherLayers.com <info@weatherlayers.com>",
+  "author": "pinpointsurf.com <contact@pinpointsurf.com>",
   "license": "MPL-2.0",
-  "repository": "github:weatherlayers/deck.gl-particle",
+  "repository": "github:pinpointsurf/deck.gl-particle",
   "main": "src/index.js",
   "browser": "dist/deck.gl-particle.min.js",
+  "files": [
+    "dist",
+    "src"
+  ],
   "type": "module",
   "scripts": {
     "build": "rimraf dist && rollup -c",
@@ -20,31 +24,32 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.8",
-    "@babel/plugin-proposal-class-properties": "^7.13.0",
-    "@babel/plugin-transform-runtime": "^7.13.9",
-    "@babel/preset-env": "^7.13.9",
-    "@babel/runtime": "^7.13.9",
-    "@danmarshall/deckgl-typings": "^4.8.0",
-    "@deck.gl/core": "^8.9.4",
-    "@deck.gl/layers": "^8.9.4",
-    "@luma.gl/constants": "^8.5.19",
-    "@luma.gl/core": "^8.5.19",
-    "@rollup/plugin-alias": "^3.1.9",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^17.1.0",
-    "@rollup/plugin-node-resolve": "^11.2.0",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.40.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-visualizer": "^4.2.0"
+    "@babel/core": "^7.28.5",
+    "@babel/plugin-transform-class-properties": "^7.27.1",
+    "@babel/plugin-transform-runtime": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@babel/runtime": "^7.28.4",
+    "@danmarshall/deckgl-typings": "^4.9.28",
+    "@deck.gl/core": "^8.9.36",
+    "@deck.gl/layers": "^8.9.36",
+    "@luma.gl/constants": "^8.5.21",
+    "@luma.gl/core": "^8.5.21",
+    "@rollup/plugin-alias": "^5.1.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.0",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rimraf": "^4.4.1",
+    "rollup": "^4.28.0",
+    "rollup-plugin-visualizer": "^5.12.0"
   },
   "peerDependencies": {
-    "@deck.gl/core": "^8.9.4",
-    "@deck.gl/layers": "^8.9.4",
-    "@luma.gl/core": "^8.5.19"
+    "@deck.gl/core": "^8.9.36",
+    "@deck.gl/layers": "^8.9.36",
+    "@luma.gl/core": "^8.5.21"
   },
   "dependencies": {
-    "geodesy-fn": "^1.0.1"
+    "geodesy-fn": "1.0.1"
   }
 }
