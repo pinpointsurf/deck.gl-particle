@@ -1,5 +1,5 @@
 {
-  "name": "deck.gl-particle",
+  "name": "@pinpointsurf/deck.gl-particle",
   "version": "1.1.1",
   "description": "Particle simulation layer for deck.gl",
   "keywords": [
@@ -12,6 +12,10 @@
   "repository": "github:pinpointsurf/deck.gl-particle",
   "main": "src/index.js",
   "browser": "dist/deck.gl-particle.min.js",
+  "files": [
+    "dist",
+    "src"
+  ],
   "type": "module",
   "scripts": {
     "build": "rimraf dist && rollup -c",
