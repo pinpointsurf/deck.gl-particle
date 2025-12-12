@@ -7,9 +7,9 @@
     "particle",
     "wind"
   ],
-  "author": "WeatherLayers.com <info@weatherlayers.com>",
+  "author": "pinpointsurf.com <contact@pinpointsurf.com>",
   "license": "MPL-2.0",
-  "repository": "github:weatherlayers/deck.gl-particle",
+  "repository": "github:pinpointsurf/deck.gl-particle",
   "main": "src/index.js",
   "browser": "dist/deck.gl-particle.min.js",
   "type": "module",
